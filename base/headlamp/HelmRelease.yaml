@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: headlamp
+  namespace: headlamp
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: headlamp  # Название чарта
+      version: "0.29.1" # Версия чарта (опционально)
+      sourceRef:
+        kind: HelmRepository
+        name: headlamp-repo
+        namespace: flux-system
+      interval: 1m
+#  values:  # Кастомные values для чарта
