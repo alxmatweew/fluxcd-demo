@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  path: "../../bundles/bundle-001"  # Путь к манифестам в репозитории
+  path: "../../bundles/bundle-002"  # Путь к манифестам в репозитории
   prune: true
   sourceRef:
     kind: GitRepository
