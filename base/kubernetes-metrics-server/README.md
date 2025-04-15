@@ -1,3 +1,5 @@
+Устарело, но вдруг проблема, то попробовать проверить вот это:
+
 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/#kubelet-serving-certs
 
 Enabling signed kubelet serving certificates By default the kubelet serving certificate deployed by kubeadm is self-signed. This means a connection from external services like the metrics-server to a kubelet cannot be secured with TLS.
