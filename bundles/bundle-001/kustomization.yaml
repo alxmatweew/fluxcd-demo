@@ -4,7 +4,7 @@ resources:
   - ../../base/headlamp
   - ../../base/ingress-nginx
   - ../../base/local-path-provisioner
-
+  - ../../base/cert-manager
 
   # - ../../base/flux-monitoring
 patches:
