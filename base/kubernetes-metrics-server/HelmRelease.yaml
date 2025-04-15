@@ -7,7 +7,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: kubernetes-metrics-server  # Название чарта
+      chart: metrics-server  # Название чарта
       version: "3.12.2" # Версия чарта (опционально)
       sourceRef:
         kind: HelmRepository
