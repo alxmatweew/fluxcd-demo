@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - ../../base/headlamp
   - ../../base/ingress-nginx
-
+  - ../../base/local-path-provisioner
 
 
   # - ../../base/flux-monitoring
