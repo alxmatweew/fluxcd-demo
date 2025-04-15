@@ -5,6 +5,9 @@ resources:
   - ../../base/ingress-nginx
   - ../../base/local-path-provisioner
   - ../../base/cert-manager
+  - ../../base/grafana/grafana-operator
+
+
 
   # - ../../base/flux-monitoring
 patches:
