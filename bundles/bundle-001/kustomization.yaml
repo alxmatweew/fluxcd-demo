@@ -8,7 +8,7 @@ resources:
   - ../../base/grafana/grafana-operator
   - ../../base/kube-state-metrics
   - ../../base/kubernetes-metrics-server
-  # - ../../base/authentik
+  - ../../base/authentik
 
   # - ../../base/flux-monitoring
 patches:
