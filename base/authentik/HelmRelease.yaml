@@ -17,7 +17,7 @@ spec:
   values: |
     authentik:
         log_level: trace
-        secret_key: "RP9KE24BFHWN3za+LoeZrUPSC4Dyh+W6HfABUGvTW6s=" # openssl rand -base64 32
+        secret_key: "uqpb7ewJ7z/S+ZXuckh8dw3FbgxQfqQKEhr79XWzgsiYjC/bQr66t4Nt+tPy2qSFfGq6AunC6OB93PmJ"
         # This sends anonymous usage-data, stack traces on errors and
         # performance data to sentry.io, and is fully opt-in
         error_reporting:
