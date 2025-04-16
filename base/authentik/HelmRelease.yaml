@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: authentik  # Название чарта
-      version: "2025.2.3" # Версия чарта (опционально)
+      version: "2025.2.4" # Версия чарта (опционально)
       sourceRef:
         kind: HelmRepository
         name: authentik-repo
