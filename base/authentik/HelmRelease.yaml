@@ -14,30 +14,30 @@ spec:
         name: authentik-repo
         namespace: flux-system
       interval: 1m
-  values: |
+  values:
     authentik:
-        log_level: trace
-        secret_key: "EcQaIqboVNUmOyCnMgFUxkl1FvUpKvQ2D2Fhyg8Szt2++2zxEzaQrBqknrpuZOTCf11x77nxXJraJB3O"
-        # This sends anonymous usage-data, stack traces on errors and
-        # performance data to sentry.io, and is fully opt-in
-        error_reporting:
-            enabled: false
-        postgresql:
-            password: "MkK128RKzQSGjgcYxw9OdsHH"
+      log_level: trace
+      secret_key: "EcQaIqboVNUmOyCnMgFUxkl1FvUpKvQ2D2Fhyg8Szt2++2zxEzaQrBqknrpuZOTCf11x77nxXJraJB3O"
+      # This sends anonymous usage-data, stack traces on errors and
+      # performance data to sentry.io, and is fully opt-in
+      error_reporting:
+        enabled: false
+      postgresql:
+        password: "MkK128RKzQSGjgcYxw9OdsHH"
     server:
-        ingress:
-            # Specify kubernetes ingress controller class name
-            ingressClassName: nginx 
-            enabled: true
+      ingress:
+        # Specify kubernetes ingress controller class name
+        ingressClassName: nginx 
+        enabled: true
+        hosts:
+          - authentik.xal.su
+        tls:
+          - secretName: wildcard-xal-su-tls-secret
             hosts:
-               - authentik.xal.su
-            tls:
-              - secretName: wildcard-xal-su-tls-secret
-                hosts:
-                  - authentik.xal.su
+              - authentik.xal.su
     postgresql:
         enabled: true
         auth:
-            password: "yYyYCeNsZZp8PEuuyvMgohcYQFggsdMkK8RKzQSGjgcYxw9OdskcYyYy"
+          password: "MkK128RKzQSGjgcYxw9OdsHH"
     redis:
         enabled: true
