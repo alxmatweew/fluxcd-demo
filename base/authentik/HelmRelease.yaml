@@ -17,13 +17,13 @@ spec:
   values: |
     authentik:
         log_level: trace
-        secret_key: "SYvoX+iGf6E+LeNxgluo1cAVTA2DGP4r4IsVGYy7Jc8xXPxG"
+        secret_key: "EcQaIqboVNUmOyCnMgFUxkl1FvUpKvQ2D2Fhyg8Szt2++2zxEzaQrBqknrpuZOTCf11x77nxXJraJB3O"
         # This sends anonymous usage-data, stack traces on errors and
         # performance data to sentry.io, and is fully opt-in
         error_reporting:
             enabled: false
         postgresql:
-            password: "XXsZZp8PEuuyvMgohcYQFggsdMkK128RKzQSGjgcYxw9OdsHH"
+            password: "MkK128RKzQSGjgcYxw9OdsHH"
     server:
         ingress:
             # Specify kubernetes ingress controller class name
