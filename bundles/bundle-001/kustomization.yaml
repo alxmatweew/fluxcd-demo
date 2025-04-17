@@ -10,7 +10,9 @@ resources:
   - ../../base/kubernetes-metrics-server
   - ../../base/authentik
 
-  # - ../../base/flux-monitoring
+
 patches:
-  - path: bundle-patches.yaml
+  # - path: bundle-patches.yaml
+  - path: patches/ingress-nginx.yaml
+  - path: patches/headlamp.yaml
 
