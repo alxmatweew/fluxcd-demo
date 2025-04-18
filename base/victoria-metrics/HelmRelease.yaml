@@ -48,7 +48,7 @@ spec:
         hosts:
           - vmsingle.xal.su
     
-        tls: []
+        tls:
           - secretName: wildcard-xal-su-tls-secret
             hosts:
               - vmsingle.xal.su
