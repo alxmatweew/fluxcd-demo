@@ -7,7 +7,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: victoria-metrics-single  # Название чарта
+      chart: victoria-metrics-k8s-stack  # Название чарта
       version: "0.17.0" # Версия чарта (опционально)
       sourceRef:
         kind: HelmRepository
