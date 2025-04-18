@@ -1,0 +1,117 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: victoria-metrics
+  namespace: vm
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: victoria-metrics-single  # Название чарта
+      version: "0.17.0" # Версия чарта (опционально)
+      sourceRef:
+        kind: HelmRepository
+        name: victoria-metrics-repo
+        namespace: flux-system
+      interval: 1m
+  values:
+    nameOverride: "vm"
+    victoria-metrics-operator:
+      enabled: true
+      crds:
+        plain: true
+        cleanup:
+          enabled: true
+    defaultDashboards:
+      # -- Enable custom dashboards installation
+      enabled: true
+      defaultTimezone: Asia/Yekaterinburg
+      grafanaOperator:
+        # -- Create dashboards as CRDs (requires grafana-operator to be installed)
+        enabled: true
+        spec:
+          instanceSelector:
+            matchLabels:
+              dashboards: grafana
+          allowCrossNamespaceImport: false
+    vmsingle:
+      ingress:
+        # -- Enable deployment of ingress for server component
+        enabled: true
+        path: "/"
+        # -- Ingress path type
+        pathType: Prefix
+        # -- Ingress controller class name
+        ingressClassName: "nginx"
+    
+        # -- Array of host objects
+        hosts:
+          - vmsingle.xal.su
+    
+        tls: []
+          - secretName: wildcard-xal-su-tls-secret
+            hosts:
+              - vmsingle.xal.su
+   
+    alertmanager:
+      # -- Create VMAlertmanager CR
+      enabled: true
+    vmalert:
+      # -- Create VMAlert CR
+      enabled: true
+    vmauth:
+      # -- Enable VMAuth CR
+      enabled: false
+    vmagent:
+      # -- Create VMAgent CR
+      enabled: true
+    
+    defaultDatasources:
+      grafanaOperator:
+        # -- Create datasources as CRDs (requires grafana-operator to be installed)
+        enabled: true
+        spec:
+          instanceSelector:
+            matchLabels:
+              dashboards: grafana
+    
+    # -- Grafana dependency chart configuration. For possible values refer [here](https://github.com/grafana/helm-charts/tree/main/charts/grafana#configuration)
+    grafana:
+      enabled: false
+      # -- Create datasource configmap even if grafana deployment has been disabled
+      forceDeployDatasource: false  
+    
+    # -- prometheus-node-exporter dependency chart configuration. For possible values check [here](https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-node-exporter/values.yaml)
+    prometheus-node-exporter:
+      enabled: true
+    # -- kube-state-metrics dependency chart configuration. For possible values check [here](https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-state-metrics/values.yaml)
+    kube-state-metrics:
+      enabled: true
+    
+    # -- Component scraping the kubelets
+    kubelet:
+      enabled: true
+    # Component scraping the kube api server
+    kubeApiServer:
+      # -- Enable Kube Api Server metrics scraping
+      enabled: true
+    # Component scraping the kube controller manager
+    kubeControllerManager:
+      # -- Enable kube controller manager metrics scraping
+      enabled: true
+    # Component scraping coreDns. Use either this or kubeDns
+    coreDns:
+      # -- Enabled CoreDNS metrics scraping
+      enabled: true
+    # Component scraping etcd
+    kubeEtcd:
+      # -- Enabled KubeETCD metrics scraping
+      enabled: true
+    # Component scraping kube scheduler
+    kubeScheduler:
+      # -- Enable KubeScheduler metrics scraping
+      enabled: true
+    # Component scraping kube proxy
+    kubeProxy:
+      # -- Enable kube proxy metrics scraping
+      enabled: false

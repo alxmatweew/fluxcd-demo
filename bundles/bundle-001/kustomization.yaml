@@ -6,9 +6,10 @@ resources:
   - ../../base/local-path-provisioner
   - ../../base/cert-manager
   - ../../base/grafana/grafana-operator
-  - ../../base/kube-state-metrics
+  # - ../../base/kube-state-metrics
   - ../../base/kubernetes-metrics-server
   - ../../base/authentik
+  - ../../base/victoria-metrics
 
 
 patches:
