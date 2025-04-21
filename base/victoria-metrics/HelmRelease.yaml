@@ -15,7 +15,7 @@ spec:
         namespace: flux-system
       interval: 1m
   values:
-    assertNoLeakedSecrets: false
+    # assertNoLeakedSecrets: false
     nameOverride: "vm"
     victoria-metrics-operator:
       enabled: true
@@ -79,7 +79,7 @@ spec:
     # -- Grafana dependency chart configuration. For possible values refer [here](https://github.com/grafana/helm-charts/tree/main/charts/grafana#configuration)
     grafana:
       enabled: true
-
+      assertNoLeakedSecrets: false
       grafana.ini:
         server:
           root_url: https://grafana.xal.su
