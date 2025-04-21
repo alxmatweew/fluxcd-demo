@@ -78,6 +78,14 @@ spec:
     # -- Grafana dependency chart configuration. For possible values refer [here](https://github.com/grafana/helm-charts/tree/main/charts/grafana#configuration)
     grafana:
       enabled: true
+      ingress:
+        enabled: true
+        hosts:
+          - grafana.xal.su
+        tls:
+          - secretName: wildcard-xal-su-tls-secret
+            hosts:
+              - grafana.xal.su
       # -- Create datasource configmap even if grafana deployment has been disabled
       forceDeployDatasource: false  
     
