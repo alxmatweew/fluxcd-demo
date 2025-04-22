@@ -127,7 +127,7 @@ spec:
     # Component scraping the kube controller manager
     kubeControllerManager:
       # -- Enable kube controller manager metrics scraping
-      enabled: true
+      enabled: false  #true
     # Component scraping coreDns. Use either this or kubeDns
     coreDns:
       # -- Enabled CoreDNS metrics scraping
@@ -135,11 +135,11 @@ spec:
     # Component scraping etcd
     kubeEtcd:
       # -- Enabled KubeETCD metrics scraping
-      enabled: true
+      enabled: false #true
     # Component scraping kube scheduler
     kubeScheduler:
       # -- Enable KubeScheduler metrics scraping
-      enabled: true
+      enabled: false #true
     # Component scraping kube proxy
     kubeProxy:
       # -- Enable kube proxy metrics scraping
