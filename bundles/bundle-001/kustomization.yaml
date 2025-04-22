@@ -10,7 +10,7 @@ resources:
   - ../../base/kubernetes-metrics-server
   - ../../base/authentik
   - ../../base/victoria-metrics
-
+  - ../../base/vector
 
 patches:
   # - path: bundle-patches.yaml
