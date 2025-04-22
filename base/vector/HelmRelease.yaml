@@ -43,27 +43,24 @@ spec:
         # Kube Controller Manager
         kube_controller_manager:
           type: prometheus_scrape
-          endpoints: ["http://127.0.0.1:10257/metrics"]
+          endpoints: ["https://127.0.0.1:10257/metrics"]
           bearer_token: "/var/run/secrets/kubernetes.io/serviceaccount/token"
           scrape_interval_secs: 5
           tls:
             verify_certificate: false
-            
         # Kube Scheduler (добавлен)
         kube_scheduler:
           type: prometheus_scrape
-          endpoints: ["http://127.0.0.1:10259/metrics"]
+          endpoints: ["https://127.0.0.1:10259/metrics"]
           bearer_token: "/var/run/secrets/kubernetes.io/serviceaccount/token"          
           scrape_interval_secs: 5
           tls:
             verify_certificate: false
-            
         # ETCD
         kube_etcd:
           type: prometheus_scrape
           endpoints: ["http://127.0.0.1:2381/metrics"]
           scrape_interval_secs: 5
-    
       sinks:
         victoria_metrics:
           type: prometheus_remote_write
