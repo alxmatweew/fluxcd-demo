@@ -21,7 +21,8 @@ spec:
       enabled: false
     
     # Сетевые настройки
-    hostNetwork: true
+    # hostNetwork: true
+    podHostNetwork: true
     dnsPolicy: ClusterFirstWithHostNet
     
     # Обход taints control-plane
