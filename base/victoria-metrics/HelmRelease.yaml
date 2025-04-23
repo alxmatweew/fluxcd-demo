@@ -148,11 +148,10 @@ spec:
           app.kubernetes.io/name: vector
       vmScrape:
         spec:
-          jobLabel: jobLabel
-          namespaceSelector:
-            matchNames: [vector]
-          endpoints:
-              scheme: http
+          - namespaceSelector:
+              matchNames: [vector]
+            endpoints:
+                scheme: http
 
 
     # Component scraping kube scheduler
