@@ -132,6 +132,8 @@ spec:
     coreDns:
       # -- Enabled CoreDNS metrics scraping
       enabled: true
+
+
     # Component scraping etcd
     kubeEtcd:
       # -- Enabled KubeETCD metrics scraping
@@ -144,6 +146,15 @@ spec:
           app.kubernetes.io/component: Agent
           app.kubernetes.io/instance: vector
           app.kubernetes.io/name: vector
+      vmScrape:
+        spec:
+          jobLabel: jobLabel
+          namespaceSelector:
+            matchNames: [vector]
+          endpoints:
+              scheme: http
+
+
     # Component scraping kube scheduler
     kubeScheduler:
       # -- Enable KubeScheduler metrics scraping
