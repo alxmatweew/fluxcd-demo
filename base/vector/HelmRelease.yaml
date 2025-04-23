@@ -67,6 +67,6 @@ spec:
           type: prometheus_remote_write
           inputs: ["kube_etcd"] #["kube_controller_manager", "kube_scheduler", "kube_etcd"]
           endpoint: "http://vmsingle-victoria-metrics-vm.vm.svc.cluster.local:8429/api/v1/write"
-          # healthcheck:
-          #   enabled: false
-            # successful_response_status: [200, 204]  # Допустимые коды ответа
+          healthcheck:
+            enabled: true
+            endpoint: "/health"
