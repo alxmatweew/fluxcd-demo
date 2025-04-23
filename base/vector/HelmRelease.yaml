@@ -62,6 +62,7 @@ spec:
           type: prometheus_scrape
           endpoints: ["http://127.0.0.1:2381/metrics"]
           scrape_interval_secs: 5
+        #Отправка метрик в Викторию
       # sinks:
         # victoria_metrics:
         #   type: prometheus_remote_write
