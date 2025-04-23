@@ -146,14 +146,14 @@ spec:
       namespaceSelector:
         matchNames: ["vector"]
 
-      # service:
-      #   enabled: true
-      #   port: 9598
-      #   targetPort: 9598
-      #   selector:
-      #     app.kubernetes.io/component: Agent
-      #     app.kubernetes.io/instance: vector
-      #     app.kubernetes.io/name: vector
+      service:
+        enabled: true
+        port: 9598
+        targetPort: 9598
+        selector:
+          app.kubernetes.io/component: Agent
+          app.kubernetes.io/instance: vector
+          app.kubernetes.io/name: vector
       # vmScrape:
       #   spec:
       #     jobLabel: jobLabel

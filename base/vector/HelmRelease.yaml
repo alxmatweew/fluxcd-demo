@@ -18,7 +18,7 @@ spec:
     # Основные настройки
     role: Agent
     service:
-      enabled: true
+      enabled: false
     
     # Сетевые настройки
     # hostNetwork: true
