@@ -139,12 +139,12 @@ spec:
       # -- Enabled KubeETCD metrics scraping
       enabled: true
 
-      endpoints:
-        - port: "prometheus-exporter"
-          path: "/metrics"
-          scheme: "http"
-      namespaceSelector:
-        matchNames: ["vector"]
+      # endpoints:
+      #   - port: "prometheus-exporter"
+      #     path: "/metrics"
+      #     scheme: "http"
+      # namespaceSelector:
+      #   matchNames: ["vector"]
 
       service:
         enabled: true
