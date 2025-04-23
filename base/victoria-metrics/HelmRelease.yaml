@@ -146,15 +146,15 @@ spec:
       #     app.kubernetes.io/component: Agent
       #     app.kubernetes.io/instance: vector
       #     app.kubernetes.io/name: vector
-      # vmScrape:
-      #   spec:
-      #     jobLabel: jobLabel
-      #     namespaceSelector:
-      #       matchNames: [vector]
-      #     endpoints:
-      #       - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
-      #         port: prometheus-exporter
-      #         scheme: http
+      vmScrape:
+        spec:
+          jobLabel: jobLabel
+          namespaceSelector:
+            matchNames: [vector]
+          endpoints:
+            - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+              port: prometheus-exporter
+              scheme: http
 
 
     # Component scraping kube scheduler
