@@ -62,7 +62,7 @@ spec:
           type: prometheus_scrape
           endpoints: ["http://127.0.0.1:2381/metrics"]
           scrape_interval_secs: 5
-      sinks:
+      # sinks:
         # victoria_metrics:
         #   type: prometheus_remote_write
         #   inputs: ["kube_etcd"] #["kube_controller_manager", "kube_scheduler", "kube_etcd"]
