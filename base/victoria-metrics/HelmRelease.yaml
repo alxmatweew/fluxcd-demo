@@ -136,6 +136,8 @@ spec:
     kubeEtcd:
       # -- Enabled KubeETCD metrics scraping
       enabled: true
+      endpoints:
+        - vector.vector.svc.cluster.local:9598
     # Component scraping kube scheduler
     kubeScheduler:
       # -- Enable KubeScheduler metrics scraping
