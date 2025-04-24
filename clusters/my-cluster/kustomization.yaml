@@ -14,6 +14,6 @@ resources:
 
 
 patches:
-  - path: ingress-nginx/patches.yaml
-  - path: headlamp/patches.yaml
+  - path: base/ingress-nginx/patches.yaml
+  - path: base/headlamp/patches.yaml
 
