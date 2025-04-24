@@ -3,15 +3,15 @@ kind: Kustomization
 resources:
   - Kustomization.yaml
   - my-flux-instance.yaml
-  - ../../base/headlamp
-  - ../../base/ingress-nginx
-  - ../../base/local-path-provisioner
-  - ../../base/cert-manager
-  - ../../base/grafana/grafana-operator
-  - ../../base/kubernetes-metrics-server
-  - ../../base/authentik
-  - ../../base/victoria-metrics
-  - ../../base/vector
+  - ../base/headlamp
+  - ../base/ingress-nginx
+  - ../base/local-path-provisioner
+  - ../base/cert-manager
+  - ../base/grafana/grafana-operator
+  - ../base/kubernetes-metrics-server
+  - ../base/authentik
+  - ../base/victoria-metrics
+  - ../base/vector
   # - ../../../base/kube-state-metrics
 
 
