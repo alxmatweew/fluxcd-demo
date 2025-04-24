@@ -147,7 +147,7 @@ spec:
       # namespaceSelector:
       #   matchNames: ["vector"]
 
-      service:
+      # service:
         # enabled: true
         # port: 9598
         # targetPort: 9598
