@@ -68,7 +68,7 @@ spec:
       enabled: true
       spec:
         extraArgs:
-          promscrape.dropOriginalLabels: "true"     
+          promscrape.dropOriginalLabels: "false"     
     
     defaultDatasources:
       grafanaOperator:
