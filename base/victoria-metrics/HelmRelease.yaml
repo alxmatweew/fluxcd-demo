@@ -134,7 +134,6 @@ spec:
       # -- Enabled CoreDNS metrics scraping
       enabled: true
 
-
     # Component scraping etcd
     kubeEtcd:
       # -- Enabled KubeETCD metrics scraping
