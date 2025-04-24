@@ -15,7 +15,6 @@ spec:
         namespace: flux-system
       interval: 1m
   values:
-    # assertNoLeakedSecrets: false
     nameOverride: "vm"
     victoria-metrics-operator:
       enabled: true
@@ -30,11 +29,11 @@ spec:
       grafanaOperator:
         # -- Create dashboards as CRDs (requires grafana-operator to be installed)
         enabled: false
-        spec:
-          instanceSelector:
-            matchLabels:
-              dashboards: grafana
-          allowCrossNamespaceImport: false
+        # spec:
+        #   instanceSelector:
+        #     matchLabels:
+        #       dashboards: grafana
+        #   allowCrossNamespaceImport: false
     vmsingle:
       ingress:
         # -- Enable deployment of ingress for server component
@@ -48,7 +47,6 @@ spec:
         # -- Array of host objects
         hosts:
           - vmsingle.xal.su
-    
         tls:
           - secretName: wildcard-xal-su-tls-secret
             hosts:
@@ -74,10 +72,10 @@ spec:
       grafanaOperator:
         # -- Create datasources as CRDs (requires grafana-operator to be installed)
         enabled: false
-        spec:
-          instanceSelector:
-            matchLabels:
-              dashboards: grafana
+        # spec:
+        #   instanceSelector:
+        #     matchLabels:
+        #       dashboards: grafana
     
     # -- Grafana dependency chart configuration. For possible values refer [here](https://github.com/grafana/helm-charts/tree/main/charts/grafana#configuration)
     grafana:
@@ -150,13 +148,13 @@ spec:
       #   matchNames: ["vector"]
 
       service:
-        enabled: true
-        port: 9598
-        targetPort: 9598
-        selector:
-          app.kubernetes.io/component: Agent
-          app.kubernetes.io/instance: vector
-          app.kubernetes.io/name: vector
+        # enabled: true
+        # port: 9598
+        # targetPort: 9598
+        # selector:
+        #   app.kubernetes.io/component: Agent
+        #   app.kubernetes.io/instance: vector
+        #   app.kubernetes.io/name: vector
       # vmScrape:
       #   spec:
       #     jobLabel: jobLabel
