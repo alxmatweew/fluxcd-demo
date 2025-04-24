@@ -1,0 +1,46 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: headlamp
+  namespace: kube-system
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: headlamp  # Название чарта
+      version: "0.29.1" # Версия чарта (опционально)
+      sourceRef:
+        kind: HelmRepository
+        name: headlamp-repo
+        namespace: flux-system
+      interval: 1m
+  values:  # Кастомные values для чарта
+    config:
+      baseURL: ""
+      oidc:
+        clientID: kube-oidc
+        clientSecret: Vdqzap389jEkB6g7o6KfrBy82aabPZt2siFglLQA32pmNR0K0lmADaL0jSNxxAsa5qxjACIBFBU0JEI3apSax7aXRNAnaiASxeEcXDgydcHnB210bbPSNFD1JwE8uUlx
+        issuerURL: https://authentik.xal.su/application/o/kube-oidc/
+        scopes: "openid,profile,email"
+        secret:
+          create: true
+          name: headlamp-oidc
+      pluginsDir: /headlamp/plugins
+    ingress:
+      # -- Enable ingress controller resource
+      enabled: true
+      # -- Ingress class name. replacement for the deprecated "kubernetes.io/ingress.class" annotation
+      ingressClassName: "nginx"
+      # -- Hostname(s) for the Ingress resource
+      # Please refer to https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/#IngressSpec for more information.
+      hosts:
+        - host: headlamp.xal.su
+          paths:
+          - path: /
+            type: ImplementationSpecific
+       # -- Ingress TLS configuration
+      tls:
+        - secretName: wildcard-xal-su-tls-secret
+          hosts:
+            - headlamp.xal.su
