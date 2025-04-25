@@ -1,0 +1,18 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cert-manager2
+  namespace: certmanager2
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: cert-manager  # Название чарта
+      version: "v1.17.1" # Версия чарта (опционально)
+      sourceRef:
+        kind: HelmRepository
+        name: cert-manager-repo
+        namespace: flux-system
+      interval: 1m
+  values:
+    installCRDs: true

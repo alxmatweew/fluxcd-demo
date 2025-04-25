@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: cert-manager-repo
+  namespace: flux-system
+spec:
+  interval: 5m
+  url: https://charts.jetstack.io  # URL вашего Helm-репозитория
+#  secretRef:  # Опционально, если требуется аутентификация
+#    name: helm-repo-credentials
