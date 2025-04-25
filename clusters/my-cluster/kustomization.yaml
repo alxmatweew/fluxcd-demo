@@ -19,4 +19,5 @@ resources:
 patches:
   - path: base/ingress-nginx/patches.yaml
   - path: base/headlamp/patches.yaml
+  - path: base/cert-manager/patches.yaml
 
