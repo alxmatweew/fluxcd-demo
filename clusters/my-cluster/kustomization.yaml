@@ -7,7 +7,7 @@ resources:
   - ../../base/ingress-nginx
   - ../../base/local-path-provisioner
   # - ../../base/cert-manager
-  - cert-manager
+  - base/cert-manager
   - ../../base/grafana/grafana-operator
   - ../../base/kubernetes-metrics-server
   - ../../base/authentik
