@@ -6,7 +6,8 @@ resources:
   - ../../base/headlamp
   - ../../base/ingress-nginx
   - ../../base/local-path-provisioner
-  - ../../base/cert-manager
+  # - ../../base/cert-manager
+  - cert-manager
   - ../../base/grafana/grafana-operator
   - ../../base/kubernetes-metrics-server
   - ../../base/authentik
