@@ -52,6 +52,7 @@ spec:
           scrape_interval_secs: 15
           tls:
             verify_certificate: false
+            verify_hostname: false
         # Kube Scheduler (добавлен)
         kube_scheduler:
           type: prometheus_scrape
