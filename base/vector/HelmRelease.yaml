@@ -46,7 +46,7 @@ spec:
           type: prometheus_scrape
           endpoints: ["https://127.0.0.1:10257/metrics"]
           bearer_token: "/var/run/secrets/kubernetes.io/serviceaccount/token"
-          scrape_interval_secs: 5
+          scrape_interval_secs: 15
           tls:
             verify_certificate: false
         # Kube Scheduler (добавлен)
@@ -54,14 +54,14 @@ spec:
           type: prometheus_scrape
           endpoints: ["https://127.0.0.1:10259/metrics"]
           bearer_token: "/var/run/secrets/kubernetes.io/serviceaccount/token"          
-          scrape_interval_secs: 5
+          scrape_interval_secs: 15
           tls:
             verify_certificate: false
         # ETCD
         kube_etcd:
           type: prometheus_scrape
           endpoints: ["http://127.0.0.1:2381/metrics"]
-          scrape_interval_secs: 5
+          scrape_interval_secs: 15
       # # Отправка метрик в Викторию
       # sinks:
         # victoria_metrics:
@@ -70,6 +70,7 @@ spec:
         #   endpoint: "http://vmsingle-victoria-metrics-vm.vm.svc.cluster.local:8429/api/v1/write"
         #   healthcheck:
         #     enabled: true
+
       # Трансляция метрик на сервисе пода ( curl http://vector.vector.svc.cluster.local:9598/metrics )
       sinks:
         etcd_prometheus_exporter:
