@@ -47,7 +47,7 @@ spec:
           endpoints: ["https://127.0.0.1:10257/metrics"]
           auth:
             strategy: "bearer"
-            token: "/var/run/secrets/kubernetes.io/serviceaccount/token"
+            token: "eyJhbGciOiJSUzI1NiIsImtpZCI6InVkdmd5bzRpSGMyQzBacjRUX0l6S1l6Nm9XZ3RWYzFad3Nhc2g5aUJOVGMifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzQ2NjI5MDQ2LCJpYXQiOjE3NDY2MjU0NDYsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwianRpIjoiYTI0Y2QyZjItY2U4Mi00OWNhLTg1NWYtMWI4NGJkYmEwMDNkIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJ2ZWN0b3IiLCJzZXJ2aWNlYWNjb3VudCI6eyJuYW1lIjoidmVjdG9yIiwidWlkIjoiMWI0Y2UwZjktODIxNS00YzRjLTk1MjMtNGY2OGM1YzRlYmI0In19LCJuYmYiOjE3NDY2MjU0NDYsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp2ZWN0b3I6dmVjdG9yIn0.KgBuV5bHQYsqM0iJmEAY2uP-cbKgiSJ18LBvr9b0Fmkv97UWyMMct4LmFxWwY0q9RnyxsCJ-jS_risTVn6z-XZoaZ_KZMmowDlQliI7Tzh2LxWt-VSTAl526Cb4xVpSV4D_S1nVKOJrpwqpBt6wjKsXs9SKrmMzd_WSjEXGAnuEuPz1FMJIh7ch5qLf1r53Ks7KhlqUVJStRyAnQC3XJ5MncmCTF-q04lup3aqrxW9IG8Hqsp0bsOh6ukEqaVvhtPU0B0QOfZCT-nxZbp0RoTKxE8jcgroQh3Y8vvfMwWfq5XMqwVyAIq9Grxh0HTlU8TE7nDNNFlLmA7OKN95MHZA"   # "/var/run/secrets/kubernetes.io/serviceaccount/token"
           scrape_interval_secs: 15
           tls:
             verify_certificate: false
