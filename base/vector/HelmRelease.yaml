@@ -45,7 +45,10 @@ spec:
         kube_controller_manager:
           type: prometheus_scrape
           endpoints: ["https://127.0.0.1:10257/metrics"]
-          bearer_token_file: "/var/run/secrets/kubernetes.io/serviceaccount/token"
+          auth:
+            strategy: "bearer"
+            token: "/var/run/secrets/kubernetes.io/serviceaccount/token"
+          # bearer_token_file: "/var/run/secrets/kubernetes.io/serviceaccount/token"
           scrape_interval_secs: 15
           tls:
             verify_certificate: false
