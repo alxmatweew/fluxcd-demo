@@ -17,10 +17,7 @@ spec:
   values:
     loki:
 
-      tolerations:
-        - key: "node-role.kubernetes.io/control-plane"
-          operator: "Exists"
-          effect: "NoSchedule"
+
 
       limits_config:
         retention_period: "10h"   #<------------------- Добавить интервал очистки (все что старше - удалять)
@@ -75,12 +72,26 @@ spec:
     deploymentMode: SimpleScalable
     backend:
       replicas: 2
-      # tolerations:
-      #   - key: node-role.kubernetes.io/control-plane
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+
     read:
       replicas: 2
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+
     write:
       replicas: 2
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+
+
     # Enable minio for storage
     minio:
       enabled: true
