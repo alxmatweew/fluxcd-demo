@@ -16,6 +16,12 @@ spec:
       interval: 1m
   values:
     loki:
+
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
+
       limits_config:
         retention_period: "10h"   #<------------------- Добавить интервал очистки (все что старше - удалять)
         max_cache_freshness_per_query: 10m
@@ -69,8 +75,8 @@ spec:
     deploymentMode: SimpleScalable
     backend:
       replicas: 2
-      tolerations:
-        - key: node-role.kubernetes.io/control-plane
+      # tolerations:
+      #   - key: node-role.kubernetes.io/control-plane
     read:
       replicas: 2
     write:
