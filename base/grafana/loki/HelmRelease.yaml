@@ -71,7 +71,7 @@ spec:
     #             pathType: Prefix
     deploymentMode: SimpleScalable
     backend:
-      replicas: 1
+      replicas: 2
       tolerations:
         - key: "node-role.kubernetes.io/control-plane"
           operator: "Exists"
