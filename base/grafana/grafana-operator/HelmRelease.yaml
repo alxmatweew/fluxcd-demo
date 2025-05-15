@@ -14,5 +14,3 @@ spec:
         name: grafana-operator-repo
         namespace: flux-system
       interval: 1m
-  # values:
-  #   
