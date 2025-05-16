@@ -19,9 +19,9 @@ spec:
       image:
         # -- Overrides the Docker registry globally for all images
         registry: mirror.gcr.io
-    loki:
       extraArgs:
         - "-config.expand-env=true"
+    loki:
       limits_config:
         retention_period: "10h"   #<------------------- Добавить интервал очистки (все что старше - удалять)
         max_cache_freshness_per_query: 10m
