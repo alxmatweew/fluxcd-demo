@@ -9,7 +9,7 @@ resources:
   # - ../../base/cert-manager
   - base/cert-manager
   - ../../base/grafana/grafana-operator
-  - ../../base/grafana/loki
+  # - ../../base/grafana/loki
   - ../../base/kubernetes-metrics-server
   - ../../base/authentik
   - ../../base/victoria-metrics
