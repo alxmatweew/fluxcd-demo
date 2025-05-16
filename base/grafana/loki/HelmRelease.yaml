@@ -15,11 +15,10 @@ spec:
         namespace: flux-system
       interval: 1m
   values:
-    # global:
-    #   image:
-    #     # -- Overrides the Docker registry globally for all images
-    #     registry: docker.io
-
+    global:
+      image:
+        # -- Overrides the Docker registry globally for all images
+        registry: mirror.gcr.io
     loki:
       limits_config:
         retention_period: "10h"   #<------------------- Добавить интервал очистки (все что старше - удалять)
