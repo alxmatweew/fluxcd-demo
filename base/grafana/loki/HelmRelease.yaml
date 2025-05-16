@@ -58,11 +58,8 @@ spec:
       enabled: true
       # -- Amount of memory allocated to chunks-cache for object storage (in MB).
       allocatedMemory: 512
-      # -- Tolerations for chunks-cache pods
-    # singleBinary:
-    #   tolerations:
-    #   - key: node-role.kubernetes.io/control-plane
-    # gateway:
+    gateway:
+      replicas: 1
     #   ingress:
     #     enabled: true
     #     hosts:
