@@ -8,17 +8,17 @@ spec:
   chart:
     spec:
       chart: loki  # Название чарта
-      version: "6.12.0" # Версия чарта (опционально)
+      version: "6.18 .0" # Версия чарта (опционально)
       sourceRef:
         kind: HelmRepository
         name: loki-repo
         namespace: flux-system
       interval: 1m
   values:
-    global:
-      image:
-        # -- Overrides the Docker registry globally for all images
-        registry: docker.io
+    # global:
+    #   image:
+    #     # -- Overrides the Docker registry globally for all images
+    #     registry: docker.io
 
     loki:
       limits_config:
