@@ -37,7 +37,7 @@ spec:
         working_directory: /var/loki/chunks
       schemaConfig:
         configs:
-          - from: 2024-04-01
+          - from: 2025-05-15
             store: tsdb
             object_store: s3
             schema: v13
@@ -69,27 +69,25 @@ spec:
     #             pathType: Prefix
     deploymentMode: SimpleScalable
     backend:
-      replicas: 2
+      replicas: 1
       tolerations:
         - key: "node-role.kubernetes.io/control-plane"
           operator: "Exists"
           effect: "NoSchedule"
 
     read:
-      replicas: 2
+      replicas: 1
       tolerations:
         - key: "node-role.kubernetes.io/control-plane"
           operator: "Exists"
           effect: "NoSchedule"
 
     write:
-      replicas: 2
+      replicas: 1
       tolerations:
         - key: "node-role.kubernetes.io/control-plane"
           operator: "Exists"
           effect: "NoSchedule"
-
-
     # Enable minio for storage
     minio:
       enabled: true
