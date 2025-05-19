@@ -34,8 +34,6 @@ spec:
         repository: docker.io/prom/memcached-exporter  #prom/memcached-exporter
         tag: v0.14.2
         pullPolicy: IfNotPresent
-
-
     loki:
       limits_config:
         retention_period: "10h"   #<------------------- Добавить интервал очистки (все что старше - удалять)
