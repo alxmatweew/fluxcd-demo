@@ -95,6 +95,16 @@ spec:
     # Enable minio for storage
     minio:
       enabled: true
+      buckets:
+      - name: chunks
+        policy: none
+        purge: false
+      - name: ruler
+        policy: none
+        purge: false
+      - name: admin
+        policy: none
+        purge: false
     # Zero out replica counts of other deployment modes
     singleBinary:
       replicas: 0
