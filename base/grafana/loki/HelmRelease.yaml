@@ -85,24 +85,24 @@ spec:
     deploymentMode: SimpleScalable
     backend:
       replicas: 1
-      tolerations:
-        - key: "node-role.kubernetes.io/control-plane"
-          operator: "Exists"
-          effect: "NoSchedule"
+      # tolerations:
+      #   - key: "node-role.kubernetes.io/control-plane"
+      #     operator: "Exists"
+      #     effect: "NoSchedule"
 
     read:
       replicas: 1
-      tolerations:
-        - key: "node-role.kubernetes.io/control-plane"
-          operator: "Exists"
-          effect: "NoSchedule"
+      # tolerations:
+      #   - key: "node-role.kubernetes.io/control-plane"
+      #     operator: "Exists"
+      #     effect: "NoSchedule"
 
     write:
       replicas: 1
-      tolerations:
-        - key: "node-role.kubernetes.io/control-plane"
-          operator: "Exists"
-          effect: "NoSchedule"
+      # tolerations:
+      #   - key: "node-role.kubernetes.io/control-plane"
+      #     operator: "Exists"
+      #     effect: "NoSchedule"
     # Enable minio for storage
     minio:
       enabled: true
