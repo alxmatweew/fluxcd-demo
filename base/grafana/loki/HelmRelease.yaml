@@ -15,19 +15,10 @@ spec:
         namespace: flux-system
       interval: 1m
   values:
-    # global:
-    #   image:
-    #     # -- Overrides the Docker registry globally for all images
-    #     registry: docker.io  #mirror.gcr.io
-    #   extraArgs:
-    #     - "-config.expand-env=true"
     memcached:
       image:
-        # -- Memcached Docker image repository
         repository: docker.io/memcached #memcached
-        # -- Memcached Docker image tag
         tag: 1.6.38-alpine
-        # -- Memcached Docker image pull policy
         pullPolicy: IfNotPresent
     memcachedExporter:
       image:
@@ -89,14 +80,12 @@ spec:
       #   - key: "node-role.kubernetes.io/control-plane"
       #     operator: "Exists"
       #     effect: "NoSchedule"
-
     read:
       replicas: 1
       # tolerations:
       #   - key: "node-role.kubernetes.io/control-plane"
       #     operator: "Exists"
       #     effect: "NoSchedule"
-
     write:
       replicas: 1
       # tolerations:
