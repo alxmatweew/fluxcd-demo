@@ -15,12 +15,27 @@ spec:
         namespace: flux-system
       interval: 1m
   values:
-    global:
-      image:
-        # -- Overrides the Docker registry globally for all images
-        registry: mirror.gcr.io
+    # global:
+    #   image:
+    #     # -- Overrides the Docker registry globally for all images
+    #     registry: docker.io  #mirror.gcr.io
     #   extraArgs:
     #     - "-config.expand-env=true"
+    memcached:
+      image:
+        # -- Memcached Docker image repository
+        repository: docker.io/memcached #memcached
+        # -- Memcached Docker image tag
+        tag: 1.6.38-alpine
+        # -- Memcached Docker image pull policy
+        pullPolicy: IfNotPresent
+    memcachedExporter:
+      image:
+        repository: docker.io/prom/memcached-exporter  #prom/memcached-exporter
+        tag: v0.14.2
+        pullPolicy: IfNotPresent
+
+
     loki:
       limits_config:
         retention_period: "10h"   #<------------------- Добавить интервал очистки (все что старше - удалять)
