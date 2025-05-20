@@ -41,6 +41,15 @@ spec:
     # Конфигурация Vector
     customConfig:
       sources:
+
+        file_messages:
+          type: file
+          include:
+            - /var/log/messages
+        kubernetes_logs:
+          type: kubernetes_logs
+
+
         # Kube Controller Manager
         kube_controller_manager:
           type: prometheus_scrape
@@ -79,6 +88,27 @@ spec:
 
       # Трансляция метрик на сервисе пода ( curl http://vector.vector.svc.cluster.local:9598/metrics )
       sinks:
+
+        loki_sink_messages:
+          type: loki
+          inputs:
+            - file_messages
+          endpoint: http://loki-gateway.loki.svc.cluster.local
+          encoding:
+            codec: json
+          labels:
+            logger: "vector-messages"
+        loki_sink_kube:
+          type: loki
+          inputs:
+            - transform_kube_logs
+          endpoint: http://loki-gateway.loki.svc.cluster.local
+          encoding:
+            codec: json
+          labels:
+            logger: "vector-kube"
+            # l_pod_name: "{{`{{kubernetes.pod_name}}`}}"
+
         etcd_prometheus_exporter:
           type: prometheus_exporter
           inputs: ["kube_etcd"]
