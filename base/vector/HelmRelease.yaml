@@ -19,12 +19,9 @@ spec:
     role: Agent
     service:
       enabled: true
-    
     # Сетевые настройки
-    # hostNetwork: true
     podHostNetwork: true
     dnsPolicy: ClusterFirstWithHostNet
-    
     # Обход taints control-plane
     tolerations:
     - key: "node-role.kubernetes.io/control-plane"
@@ -40,7 +37,6 @@ spec:
     
     # Конфигурация Vector
     customConfig:
-
       data_dir: /vector-data-dir
       api:
         enabled: true
