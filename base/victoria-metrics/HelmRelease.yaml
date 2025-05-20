@@ -108,7 +108,22 @@ spec:
           groups_attribute_path: groups
           allow_sign_up: true
           auto_login: false
-
+      datasources:
+        datasources.yaml:
+          apiVersion: 1
+          datasources:
+          # - name: Prometheus
+          #   type: prometheus
+          #   url: http://vmsingle-victoria-metrics-vm.vm.svc:8429/prometheus
+          #   access: proxy
+          #   isDefault: true
+          - name: Loki
+            type: loki
+            access: proxy
+            url: http://loki-gateway.loki-stack.svc.cluster.local/
+            jsonData:
+              timeout: 60
+              maxLines: 1000
       ingress:
         enabled: true
         ingressClassName: "nginx"
