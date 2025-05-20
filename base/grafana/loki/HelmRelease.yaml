@@ -88,11 +88,11 @@ spec:
       #     operator: "Exists"
       #     effect: "NoSchedule"
     write:
-      replicas: 1
-      # tolerations:
-      #   - key: "node-role.kubernetes.io/control-plane"
-      #     operator: "Exists"
-      #     effect: "NoSchedule"
+      replicas: 2
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
     # Enable minio for storage
     minio:
       enabled: true
