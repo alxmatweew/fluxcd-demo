@@ -40,6 +40,13 @@ spec:
     
     # Конфигурация Vector
     customConfig:
+
+      data_dir: /vector-data-dir
+      api:
+        enabled: true
+        address: 127.0.0.1:8686
+        playground: false
+
       sources:
         file_messages:
           type: file
