@@ -101,7 +101,7 @@ spec:
         loki_sink_kube:
           type: loki
           inputs:
-            - transform_kube_logs
+            - kubernetes_logs
           endpoint: http://loki-gateway.loki.svc.cluster.local
           encoding:
             codec: json
