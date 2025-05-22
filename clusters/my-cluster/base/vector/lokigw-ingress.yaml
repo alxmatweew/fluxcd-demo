@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lokigw-ingress-for-external
+  namespace: loki
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: kube.xal.su
+      http:
+        paths:
+          - path: /lokigw(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: loki-gateway
+                port:
+                  number: 80

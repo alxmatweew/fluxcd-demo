@@ -7,14 +7,15 @@ resources:
   - ../../base/ingress-nginx
   - ../../base/local-path-provisioner
   # - ../../base/cert-manager
-  - base/cert-manager
+  - base/cert-manager # Демонстрация альтернативного разворачивания приложения, которое не совпадает с base совсем (в данном случае namespace другой)
+  - base/vector # Дополнительный ингресс для заливки логов в Локи извне
   - ../../base/grafana/grafana-operator
   - ../../base/grafana/loki
   - ../../base/kubernetes-metrics-server
   - ../../base/authentik
   - ../../base/victoria-metrics
   - ../../base/vector
-  # - ../../../base/kube-state-metrics
+  # - ../../../base/kube-state-metrics  # Если ставить полный стек Виктории, то там должен быть встроенный, а потому этот выключил
 
 
 patches:
