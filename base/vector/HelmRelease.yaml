@@ -122,7 +122,7 @@ spec:
             codec: json
           labels:
             logger: "vector-kube"
-            service_name: "{{ pod_name }}"
+            service_name: "{{` {{ pod_name }} `}}"
             # l_pod_name: "{{`{{kubernetes.pod_name}}`}}"
 
 # Трансляция метрик на сервисе пода ( curl http://vector.vector.svc.cluster.local:9598/metrics )
