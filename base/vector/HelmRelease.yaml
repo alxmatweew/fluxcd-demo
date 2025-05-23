@@ -51,6 +51,23 @@ spec:
         kubernetes_logs:
           type: kubernetes_logs
 
+      transforms:
+        remapping:
+          type: remap
+          inputs: ["kubernetes_logs"]
+          source: |
+            . = {
+            "container_name": .kubernetes.container_name,
+            "namespace": .kubernetes.namespace_labels."kubernetes.io/metadata.name",
+            "pod_name": .kubernetes."pod_name",
+            "node_hostname": .kubernetes.node_labels."kubernetes.io/hostname",
+            "message": ."message",
+            "stream": ."stream",
+            "timestamp": ."timestamp",
+            "level": parse_json!(.message).level
+            }
+
+
         # Kube Controller Manager
         # kube_controller_manager:
         #   type: prometheus_scrape
@@ -100,7 +117,7 @@ spec:
         loki_sink_kube:
           type: loki
           inputs:
-            - kubernetes_logs
+            - remapping  #kubernetes_logs
           endpoint: http://loki-gateway.loki.svc.cluster.local
           encoding:
             codec: json
