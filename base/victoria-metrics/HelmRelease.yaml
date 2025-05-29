@@ -74,9 +74,10 @@ spec:
     vmagent:
       # -- Create VMAgent CR
       enabled: true
-      # spec:
-      #   extraArgs:
-      #     promscrape.dropOriginalLabels: "false"     
+      spec:
+        extraArgs:
+          promscrape:
+            dropOriginalLabels: "false"     
     
     defaultDatasources:
       grafanaOperator:
