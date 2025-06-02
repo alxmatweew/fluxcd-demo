@@ -63,7 +63,8 @@ spec:
             "node_hostname": .kubernetes.node_labels."kubernetes.io/hostname",
             "message": ."message",
             "stream": ."stream",
-            "timestamp": ."timestamp"
+            "timestamp": ."timestamp",
+            "z_debug": .
             }
 
 
