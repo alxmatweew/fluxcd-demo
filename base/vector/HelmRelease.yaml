@@ -56,7 +56,10 @@ spec:
           type: remap
           inputs: ["kubernetes_logs"]
           source: |
+            .service_name = if exists(.kubernetes.pod_labels.name) {.kubernetes.pod_labels.name} else if exists(.kubernetes.pod_labels."app.kubernetes.io/name") {.kubernetes.pod_labels."app.kubernetes.io/name"} else if exists(.kubernetes.pod_labels.run) {.kubernetes.pod_labels.run} else if exists(.kubernetes.pod_labels."kubernetes.io/metadata.name") {.kubernetes.pod_labels."kubernetes.io/metadata.name"} else if exists(.kubernetes.pod_labels.app) {.kubernetes.pod_labels.app} else if exists(.kubernetes.pod_labels.component) {.kubernetes.pod_labels.component} else {"unknown"}
+
             . = {
+            "service_name": .service_name,
             "container_name": .kubernetes.container_name,
             "namespace": .kubernetes.namespace_labels."kubernetes.io/metadata.name",
             "pod_name": .kubernetes."pod_name",
@@ -123,7 +126,7 @@ spec:
             codec: json
           labels:
             logger: "vector-kube"
-            service_name: "{{` {{ pod_name }} `}}"
+            service_name: "{{` {{ service_name }} `}}"
 
 # Трансляция метрик на сервисе пода ( curl http://vector.vector.svc.cluster.local:9598/metrics )
         # etcd_prometheus_exporter:
