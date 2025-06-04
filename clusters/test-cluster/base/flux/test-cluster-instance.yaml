@@ -5,8 +5,8 @@ metadata:
   namespace: flux-system
   annotations:
     fluxcd.controlplane.io/reconcile: "enable"
-    fluxcd.controlplane.io/reconcileEvery: "1h"
-    fluxcd.controlplane.io/reconcileTimeout: "5m"
+    fluxcd.controlplane.io/reconcileEvery: "1m" #"1h"
+    fluxcd.controlplane.io/reconcileTimeout: "10m"
 spec:
   distribution:
     version: "2.5.0"
