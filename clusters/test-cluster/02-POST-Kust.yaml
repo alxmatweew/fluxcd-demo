@@ -16,7 +16,7 @@ spec:
     kind: GitRepository
     name: flux-system
   healthChecks:
-    - apiVersion: v1
-      kind: Pod
-      name: external-grafana*
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: external-grafana-deployment
       namespace: grafana-operator
