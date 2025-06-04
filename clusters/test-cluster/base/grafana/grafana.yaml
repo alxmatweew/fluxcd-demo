@@ -12,5 +12,5 @@ spec:
     security:
       admin_user: "admin"
       admin_password: "111"
-  client:
-    preferService: true
+  # client:
+  #   preferService: true
