@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  # - ../base/Dashboards
+  - ../base/Dashboards
   - ../base/grafana/base-folder.yaml
 
 
