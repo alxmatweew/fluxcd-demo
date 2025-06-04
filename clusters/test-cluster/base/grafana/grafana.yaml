@@ -1,46 +1,16 @@
----
 apiVersion: grafana.integreatly.org/v1beta1
 kind: Grafana
 metadata:
   name: external-grafana
   namespace: grafana-operator
-  labels:
-    dashboards: "external-grafana"
 spec:
-  config:  # Все строковые значения теперь должны быть в кавычках (даже boolean!)
+  config:
     auth:
-      disable_login_form: "false"  # Исправлено: строка вместо булева значения
+      disable_login_form: "false"
     auth.anonymous:
-      enabled: "false"  # Исправлено: строка вместо булева значения
-    log:
-      mode: "console"
-      level: "warn"
+      enabled: "false"
     security:
       admin_user: "admin"
-      admin_password: "strongpassword"
-  # Новый формат dashboardLabelSelector (если используется оператор >=5.0)
-  dashboards:
-    labelSelector:
-      - matchExpressions:
-          - key: app
-            operator: In
-            values:
-              - grafana
-  ingress:
-    enabled: true
-    targetPort: 3000
-    path: /
-    hostname: grafana.example.com
-  resources:
-    limits:
-      cpu: "500m"
-      memory: "512Mi"
-    requests:
-      cpu: "100m"
-      memory: "128Mi"
-  service:
-    type: ClusterIP
-    ports:
-      - name: http
-        port: 3000
-        targetPort: 3000
+      admin_password: "111"
+  client:
+    preferService: true
