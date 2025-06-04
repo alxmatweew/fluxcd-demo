@@ -4,10 +4,12 @@ metadata:
   name: 01-payload
   namespace: flux-system
 spec:
-  interval: 5m
+  interval: 1m          # Проверяет состояние каждые 1 минут
+  retryInterval: 1m     # Повторяет неудачные попытки каждую минуту
+  timeout: 2m           # Прерывает операцию, если она длится дольше 2 минут
   path: "../../clusters/test-cluster/01-PAYLOAD/"  # Путь к основному приложению
-  prune: true
-  force: true
+  prune: true  # Удаляет ресурсы, удалённые из Git
+  force: true  # Принудительно перезаписывает изменения
   dependsOn:  # Ждем завершения 00-PRE
     - name: 00-pre
   sourceRef:

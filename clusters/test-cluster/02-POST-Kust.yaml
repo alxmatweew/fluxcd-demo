@@ -4,10 +4,12 @@ metadata:
   name: 02-post
   namespace: flux-system
 spec:
-  interval: 5m
+  interval: 1m          # Проверяет состояние каждые 1 минут
+  retryInterval: 1m     # Повторяет неудачные попытки каждую минуту
+  timeout: 2m           # Прерывает операцию, если она длится дольше 2 минут
   path: "../../clusters/test-cluster/02-POST/"  # Путь к POST-ресурсам
-  prune: true
-  force: true
+  prune: true  # Удаляет ресурсы, удалённые из Git
+  force: true  # Принудительно перезаписывает изменения
   dependsOn:  # Ждем завершения 01-PAYLOAD
     - name: 01-payload
   sourceRef:
