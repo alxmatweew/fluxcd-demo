@@ -1,0 +1,13 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaFolder
+metadata:
+  name: base-folder
+  namespace: grafana-op2
+spec:
+  title: krlb
+  instanceSelector:
+    matchExpressions:
+    - key: dashboards
+      operator: In
+      values:
+      - external-grafana
