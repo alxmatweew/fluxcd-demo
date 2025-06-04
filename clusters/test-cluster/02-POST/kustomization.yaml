@@ -7,4 +7,4 @@ resources:
 
 
 patches:
-  - path: ../base/grafana/Dashboards/patches.yaml
+  # - path: ../base/grafana/Dashboards/patches.yaml

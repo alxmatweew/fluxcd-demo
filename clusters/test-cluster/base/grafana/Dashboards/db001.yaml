@@ -1,7 +1,7 @@
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
-  namespace: grafana-operator
+  namespace: grafana-op2
   name: grafanadashboard-k8s-pods
 spec:
   folderRef: base-folder
