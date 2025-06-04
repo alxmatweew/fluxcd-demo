@@ -4,7 +4,8 @@ metadata:
   name: external-grafana
   namespace: grafana-operator
   labels:
-    dashboards: "external-grafana"  
+    dashboards: external-grafana  
+    my-label: xal
 spec:
   config:
     auth:
@@ -14,5 +15,3 @@ spec:
     security:
       admin_user: "admin"
       admin_password: "111"
-  # client:
-  #   preferService: true
