@@ -4,3 +4,4 @@ resources:
   - 00-PRE-Kust.yaml
   - 01-PAYLOAD-Kust.yaml
   - 02-POST-Kust.yaml
+  - ../../clusters/test-cluster/base/flux
