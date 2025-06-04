@@ -1,43 +1,43 @@
+---
 apiVersion: grafana.integreatly.org/v1beta1
 kind: Grafana
 metadata:
-  name: external-grafana  # Имя должно совпадать с instanceSelector в GrafanaFolder
-  namespace: grafana-operator  # Должен совпадать с namespace GrafanaFolder
+  name: external-grafana
+  namespace: grafana-operator
   labels:
-    dashboards: "external-grafana"  # Метка для matchExpressions
+    dashboards: "external-grafana"
 spec:
-  config:
+  config:  # Все строковые значения теперь должны быть в кавычках (даже boolean!)
     auth:
-      disable_login_form: false
+      disable_login_form: "false"  # Исправлено: строка вместо булева значения
     auth.anonymous:
-      enabled: false  # Для безопасности лучше отключить анонимный доступ
+      enabled: "false"  # Исправлено: строка вместо булева значения
     log:
       mode: "console"
       level: "warn"
     security:
       admin_user: "admin"
-      admin_password: "strongpassword"  # Замените на надежный пароль
-  dashboardLabelSelector:
-    - matchExpressions:
-        - key: app
-          operator: In
-          values:
-            - grafana
-  instanceSelector:  # Опционально, если нужно явно указать селектор
-    matchLabels:
-      dashboards: "external-grafana"
+      admin_password: "strongpassword"
+  # Новый формат dashboardLabelSelector (если используется оператор >=5.0)
+  dashboards:
+    labelSelector:
+      - matchExpressions:
+          - key: app
+            operator: In
+            values:
+              - grafana
   ingress:
     enabled: true
     targetPort: 3000
     path: /
-    hostname: grafana.example.com  # Укажите ваш домен
+    hostname: grafana.example.com
   resources:
     limits:
-      cpu: 500m
-      memory: 512Mi
+      cpu: "500m"
+      memory: "512Mi"
     requests:
-      cpu: 100m
-      memory: 128Mi
+      cpu: "100m"
+      memory: "128Mi"
   service:
     type: ClusterIP
     ports:
