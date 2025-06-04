@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  path: "./00-PRE"  # Путь к папке с PRE-ресурсами
+  path: "00-PRE"  # Путь к папке с PRE-ресурсами
   prune: true
   sourceRef:
     kind: GitRepository

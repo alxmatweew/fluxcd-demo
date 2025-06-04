@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  path: "./02-POST"  # Путь к POST-ресурсам
+  path: "02-POST"  # Путь к POST-ресурсам
   prune: true
   dependsOn:  # Ждем завершения 01-PAYLOAD
     - name: 01-payload
