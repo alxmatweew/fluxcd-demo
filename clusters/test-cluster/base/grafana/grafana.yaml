@@ -7,9 +7,13 @@ metadata:
     dashboards: external-grafana  
     my-label: xal
 spec:
-  podLabels:  # Этот блок передаёт метки на Pod'ы
-    dashboards: external-grafana
-    my-label: xal
+  deployment:
+    spec:
+      template:
+        metadata:
+          labels:
+            dashboards: external-grafana
+            my-label: xal
   config:
     auth:
       disable_login_form: "false"
