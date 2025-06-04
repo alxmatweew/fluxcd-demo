@@ -7,6 +7,7 @@ spec:
   interval: 5m
   path: "../../clusters/test-cluster/02-POST/"  # Путь к POST-ресурсам
   prune: true
+  force: true
   dependsOn:  # Ждем завершения 01-PAYLOAD
     - name: 01-payload
   sourceRef:
