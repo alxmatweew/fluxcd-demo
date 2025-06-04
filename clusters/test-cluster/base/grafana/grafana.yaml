@@ -3,6 +3,8 @@ kind: Grafana
 metadata:
   name: external-grafana
   namespace: grafana-operator
+  labels:
+    dashboards: "external-grafana"  
 spec:
   config:
     auth:
