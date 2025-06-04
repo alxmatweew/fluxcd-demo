@@ -4,7 +4,7 @@ metadata:
   namespace: grafana-operator
   name: grafanadashboard-k8s-pods
 spec:
-  folderRef: base-folder
+  # folderRef: base-folder
   resyncPeriod: 10s
   instanceSelector:
     matchLabels:
