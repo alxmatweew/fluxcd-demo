@@ -5,6 +5,8 @@ metadata:
   namespace: local-path-provisioner
 spec:
   interval: 1m
+  driftDetection:
+    mode: enabled # Следит за изменениями и возвращает к состоянию как в Git  
   chart:
     spec:
       chart: local-path-provisioner  # Название чарта
@@ -19,8 +21,7 @@ spec:
   #     remediateLastFailure: true
   #     retries: 5
     # force: true  # Опционально, если нужно пересоздавать Pod'ы
-  driftDetection:
-    mode: enabled
+
   # install:
   #   remediation:
   #     retries: 5
