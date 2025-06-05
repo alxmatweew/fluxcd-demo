@@ -14,16 +14,16 @@ spec:
         name: local-path-provisioner-repo
         namespace: flux-system
       interval: 1m
-  upgrade:
-    remediation:
-      remediateLastFailure: true
-      retries: 5
+  # upgrade:
+  #   remediation:
+  #     remediateLastFailure: true
+  #     retries: 5
     # force: true  # Опционально, если нужно пересоздавать Pod'ы
   driftDetection:
     mode: enabled
-  install:
-    remediation:
-      retries: 5
+  # install:
+  #   remediation:
+  #     retries: 5
   values:
     storageClass:
       defaultClass: true
