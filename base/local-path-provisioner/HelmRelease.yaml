@@ -4,7 +4,7 @@ metadata:
   name: local-path-provisioner
   namespace: local-path-provisioner
 spec:
-  interval: 5m
+  interval: 1m
   chart:
     spec:
       chart: local-path-provisioner  # Название чарта
@@ -15,13 +15,13 @@ spec:
         namespace: flux-system
       interval: 1m
   upgrade:
-    force: true  
-  # install:
-  #   remediation:
-  #     retries: 3
-  # upgrade:
-  #   remediation:
-  #     retries: 3
+    remediation:
+      remediateLastFailure: true
+      retries: 5
+    # force: true  # Опционально, если нужно пересоздавать Pod'ы
+  install:
+    remediation:
+      retries: 5
   values:
     storageClass:
       defaultClass: true
