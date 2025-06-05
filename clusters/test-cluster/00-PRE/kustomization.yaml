@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   # - namespace.yaml
   - ../../../base/grafana/grafana-operator
+  - ../../../base/local-path-provisioner
 
 patches:
   # - path: base/cert-manager/patches.yaml

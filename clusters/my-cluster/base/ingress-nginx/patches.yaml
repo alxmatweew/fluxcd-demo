@@ -28,7 +28,7 @@ spec:
         #type: LoadBalancer
         type: NodePort  
       hostNetwork: true
-      dnsPolicy: ClusterFirstWithHostNet
+      dnsPolicy: ClusterFirstWithHostNet  # Позволяет производить DNS запросы внутрь кластера при "hostNetwork: true"
       ingressClassResource:
         default: true
       allowSnippetAnnotations: true
