@@ -21,7 +21,6 @@ spec:
   #     remediateLastFailure: true
   #     retries: 5
     # force: true  # Опционально, если нужно пересоздавать Pod'ы
-
   # install:
   #   remediation:
   #     retries: 5

@@ -5,6 +5,8 @@ metadata:
   namespace: grafana-operator
 spec:
   interval: 5m
+  driftDetection:
+    mode: enabled # Следит за изменениями и возвращает к состоянию как в Git  
   chart:
     spec:
       chart: grafana-operator  # Название чарта

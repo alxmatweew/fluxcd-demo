@@ -5,6 +5,8 @@ metadata:
   namespace: kube-state-metrics
 spec:
   interval: 5m
+  driftDetection:
+    mode: enabled # Следит за изменениями и возвращает к состоянию как в Git  
   chart:
     spec:
       chart: kube-state-metrics  # Название чарта

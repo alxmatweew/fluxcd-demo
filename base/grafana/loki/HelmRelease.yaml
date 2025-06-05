@@ -5,6 +5,8 @@ metadata:
   namespace: loki
 spec:
   interval: 5m
+  driftDetection:
+    mode: enabled # Следит за изменениями и возвращает к состоянию как в Git  
   chart:
     spec:
       chart: loki  # Название чарта

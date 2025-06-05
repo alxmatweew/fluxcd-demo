@@ -5,6 +5,8 @@ metadata:
   namespace: vm
 spec:
   interval: 5m
+  driftDetection:
+    mode: enabled # Следит за изменениями и возвращает к состоянию как в Git  
   chart:
     spec:
       chart: victoria-metrics-k8s-stack  # Название чарта
