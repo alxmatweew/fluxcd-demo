@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: curl-pod
+  namespace: tools
+  labels:
+    app: curl-test
+spec:
+  containers:
+  - name: curl-container
+    image: alpine/curl:latest  # Образ с предустановленным curl
+    command: ["sleep", "infinity"]  # Под будет висеть в фоне
