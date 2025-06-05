@@ -14,6 +14,12 @@ spec:
         name: local-path-provisioner-repo
         namespace: flux-system
       interval: 1m
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
   values:
     storageClass:
       defaultClass: true
