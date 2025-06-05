@@ -19,6 +19,8 @@ spec:
       remediateLastFailure: true
       retries: 5
     # force: true  # Опционально, если нужно пересоздавать Pod'ы
+  driftDetection:
+    mode: enabled
   install:
     remediation:
       retries: 5
