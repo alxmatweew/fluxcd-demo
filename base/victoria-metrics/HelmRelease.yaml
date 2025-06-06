@@ -72,13 +72,13 @@ spec:
       enabled: true
     vmauth:
       # -- Enable VMAuth CR
-      enabled: false
+      enabled: true
     vmagent:
       # -- Create VMAgent CR
       enabled: true
       spec:
         extraArgs:
-          promscrape.dropOriginalLabels: "false"     
+          promscrape.dropOriginalLabels: "false"   # Позволяет дебажить перемаркировку
     
     defaultDatasources:
       grafanaOperator:
