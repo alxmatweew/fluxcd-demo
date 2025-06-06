@@ -73,18 +73,24 @@ spec:
     vmauth:
       # -- Enable VMAuth CR
       enabled: true
+
       ingress:
+        # -- Enable deployment of ingress for server component
         enabled: true
+        # annotations:
+        path: "/vmauth/"
+        # -- Ingress path type
+        pathType: Prefix
+        # -- Ingress controller class name
+        ingressClassName: "nginx"
+        # -- Array of host objects
         hosts:
-          - host: xal.su
-            paths:
-              - path: /vmauth
-                pathType: ImplementationSpecific  # Или Prefix/Exact
-                backend:
-                  service:
-                    name: vmauth
-                    port:
-                      number: 8427
+          - xal.su
+        tls:
+          - secretName: wildcard-xal-su-tls-secret
+            hosts:
+              - xal.su
+
       config:
         users:
           - username: "user1"
