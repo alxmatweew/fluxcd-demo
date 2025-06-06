@@ -76,7 +76,15 @@ spec:
       ingress:
         enabled: true
         hosts:
-          - xal.su
+          - host: xal.su
+            paths:
+              - path: /vmauth
+                pathType: ImplementationSpecific  # Или Prefix/Exact
+                backend:
+                  service:
+                    name: vmauth
+                    port:
+                      number: 8427
       config:
         users:
           - username: "user1"
