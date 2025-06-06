@@ -73,6 +73,17 @@ spec:
     vmauth:
       # -- Enable VMAuth CR
       enabled: true
+      ingress:
+        enabled: true
+        hosts:
+          - xal.su
+      config:
+        users:
+          - username: "user1"
+            password: "password123"  
+            url_prefix: "http://vmsingle-victoria-metrics.svc.cluster.local:8428"
+
+
     vmagent:
       # -- Create VMAgent CR
       enabled: true
